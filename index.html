@@ -108,7 +108,7 @@ a:hover{color:var(--gold)}
 select.inp{background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 20px) 50%,calc(100% - 15px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:40px}
 select.inp option{background:var(--ink);color:var(--ivory)}
 textarea.inp{resize:vertical;min-height:64px}
-.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.choices{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
 @media (max-width:520px){.choices{grid-template-columns:1fr}}
 .choice{cursor:pointer;padding:14px 16px;border-radius:12px;border:1px solid rgba(169,180,194,.25);background:rgba(15,29,46,.5);transition:border-color .15s,background .15s;font-size:15px;display:flex;align-items:center;gap:12px;user-select:none}
 .choice:hover{border-color:rgba(201,164,92,.6)}
@@ -117,8 +117,6 @@ textarea.inp{resize:vertical;min-height:64px}
 .choice.on .rb{border-color:var(--gold)}
 .choice.on .rb::after{content:"";position:absolute;inset:3px;border-radius:50%;background:var(--gold)}
 .choice small{display:block;color:var(--muted);font-size:12.5px;margin-top:1px}
-.choice.no.on{border-color:var(--no);background:rgba(217,140,140,.08)}
-.choice.no.on .rb{border-color:var(--no)}.choice.no.on .rb::after{background:var(--no)}
 .submit{width:100%;cursor:pointer;font-family:'Inter',sans-serif;font-size:16px;font-weight:600;letter-spacing:.04em;color:var(--ink);padding:16px;border:none;border-radius:999px;background:var(--gold);margin-top:6px;transition:background .2s,transform .2s}
 .submit:hover{background:var(--gold-soft);transform:translateY(-1px)}
 .submit[disabled]{opacity:.6;cursor:default;transform:none}
@@ -263,7 +261,6 @@ textarea.inp{resize:vertical;min-height:64px}
             <div class="choice" data-v="Seduta e festa" role="radio" tabindex="0"><span class="rb"></span><span>Seduta e festa<small>dalle 14:00</small></span></div>
             <div class="choice" data-v="Solo festa" role="radio" tabindex="0"><span class="rb"></span><span>Solo la festa<small>dalle 19:30</small></span></div>
             <div class="choice" data-v="Solo seduta" role="radio" tabindex="0"><span class="rb"></span><span>Solo la seduta<small>14:00 – 17:30</small></span></div>
-            <div class="choice no" data-v="Non posso" role="radio" tabindex="0"><span class="rb"></span><span>Non posso esserci</span></div>
           </div>
         </div>
         <div class="field">
@@ -374,8 +371,7 @@ const HOSTS = [
     const msgs = {
       'Seduta e festa': 'Ci vediamo il 5 novembre alle 14:00 per la seduta e poi alle 19:30 al Giardino dei Tempi.',
       'Solo festa':     'Ci vediamo il 5 novembre alle 19:30 al Giardino dei Tempi per aperitivo e cena.',
-      'Solo seduta':    'Ci vediamo il 5 novembre alle 14:00 per la seduta di specializzazione.',
-      'Non posso':      'Ci dispiace che tu non possa esserci. Grazie di avercelo fatto sapere.'
+      'Solo seduta':    'Ci vediamo il 5 novembre alle 14:00 per la seduta di specializzazione.'
     };
     thanksMsg.textContent = msgs[partecipazione] || '';
     formEl.style.display = 'none';
