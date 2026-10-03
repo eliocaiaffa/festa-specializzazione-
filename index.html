@@ -350,7 +350,8 @@ const HOSTS = [
     hostSel.innerHTML = '<option value="">Seleziona…</option>' +
       HOSTS.map(h=>`<option>${h.replace(/</g,'&lt;')}</option>`).join('') +
       // Gli invitati di tutti finiscono nel foglio "Invitati – Comune"
-      '<option value="Comune">In comune (invitato da tutti noi)</option>';
+      '<option value="Comune">In comune (invitato da tutti noi)</option>' +
+      '<option>Ortopedia Taranto</option>';
     hostSel.id = 'invitatoDa'; hostTxt.remove(); hostSel.style.display = 'block';
   }
   const hostEl = () => document.getElementById('invitatoDa');
