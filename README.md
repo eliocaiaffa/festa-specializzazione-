@@ -40,7 +40,7 @@ Ogni risposta finisce:
 ## Pubblicare (GitHub Pages)
 
 Impostazioni della repo ▸ **Pages** ▸ Source: *Deploy from a branch* ▸ `main` / `root` ▸ Save.
-Il sito sarà su `https://eliocaiaffa.github.io/festa-specializzazione/`.
+Il sito sarà su `https://eliocaiaffa.github.io/festa-specializzazione-/`.
 
 ## Da completare
 
