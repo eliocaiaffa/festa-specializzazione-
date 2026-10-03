@@ -41,7 +41,3 @@ Ogni risposta finisce:
 
 Impostazioni della repo ▸ **Pages** ▸ Source: *Deploy from a branch* ▸ `main` / `root` ▸ Save.
 Il sito sarà su `https://eliocaiaffa.github.io/festa-specializzazione-/`.
-
-## Da completare
-
-- Sede e aula della seduta: card *Seduta di specializzazione* in `index.html` (`id="sedeSeduta"`).

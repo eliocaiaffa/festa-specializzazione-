@@ -93,7 +93,6 @@ a:hover{color:var(--gold)}
 .card p{margin:0;color:var(--muted);font-size:15.5px}
 .card .when{margin-top:14px;color:var(--ivory);font-weight:500;font-size:15px}
 .maplink{display:inline-flex;align-items:center;gap:8px;margin-top:18px;font-weight:600;font-size:14px;letter-spacing:.04em;border-bottom:1px solid var(--line);padding-bottom:2px}
-.pending{display:inline-block;margin-top:18px;font-size:13px;color:var(--gold);font-style:italic}
 
 /* RSVP */
 .rcard{max-width:620px;margin:0 auto;border:1px solid var(--line);border-radius:22px;padding:clamp(24px,5vw,44px);background:linear-gradient(180deg,rgba(31,53,79,.6),rgba(22,40,61,.45))}
@@ -221,11 +220,10 @@ textarea.inp{resize:vertical;min-height:64px}
     <div class="cards">
       <div class="card reveal">
         <div class="eyebrow">Pomeriggio · ore 14:00</div>
-        <h3>Seduta di specializzazione</h3>
-        <!-- SEDE SEDUTA: da completare quando è confermata l'aula -->
-        <p id="sedeSeduta">Sede e aula verranno comunicate a breve.</p>
-        <div class="when">Fine prevista tra le 17:00 e le 17:30</div>
-        <span class="pending">Aggiorneremo questa pagina con l'aula esatta.</span>
+        <h3>Aula Magna – Policlinico di Bari</h3>
+        <p>Piazza Giulio Cesare 11, Bari</p>
+        <div class="when">Seduta di specializzazione · fine prevista tra le 17:00 e le 17:30</div>
+        <a class="maplink" href="https://www.google.com/maps/search/?api=1&query=Aula+Magna+Policlinico+di+Bari+Piazza+Giulio+Cesare+11" target="_blank" rel="noopener">Apri in Google Maps →</a>
       </div>
       <div class="card reveal">
         <div class="eyebrow">Sera · dalle 19:30 all'1:00</div>
@@ -302,7 +300,11 @@ textarea.inp{resize:vertical;min-height:64px}
       Esempio: const HOSTS = ["Elio Caiaffa", "Mario Rossi"];
    ============================================================ */
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxjuG5vwsPgvelAznOId96UREr_0UOoHFuDLffvfa-Z7lBmxQpKVfTKzre0dqyKnATgNw/exec";
-const HOSTS = [];
+const HOSTS = [
+  "Gianni Brunetti", "Elio Caiaffa", "Giulia Colasuonno", "Matteo D'Aprile",
+  "Barbara Guglielmi", "Marilù Mancini", "Sarha Manto", "Antonio Minchillo",
+  "Maurizio Pastore", "Fabrizio Piacquadio", "Nicola Reggente"
+];
 
 /* ---------- Animazioni d'ingresso ---------- */
 (function reveal(){
@@ -346,7 +348,9 @@ const HOSTS = [];
   // Menu a tendina se i nomi dei festeggiati sono stati inseriti
   if(HOSTS.length){
     hostSel.innerHTML = '<option value="">Seleziona…</option>' +
-      HOSTS.map(h=>`<option>${h.replace(/</g,'&lt;')}</option>`).join('');
+      HOSTS.map(h=>`<option>${h.replace(/</g,'&lt;')}</option>`).join('') +
+      // Gli invitati di tutti finiscono nel foglio "Invitati – Comune"
+      '<option value="Comune">In comune (invitato da tutti noi)</option>';
     hostSel.id = 'invitatoDa'; hostTxt.remove(); hostSel.style.display = 'block';
   }
   const hostEl = () => document.getElementById('invitatoDa');
