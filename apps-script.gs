@@ -21,7 +21,7 @@ var FOLDER_ID = '1oM68fSZzYe27ZlpFJX2_CeagZp01QWZX';
 // Quando avrete i nomi, inseriteli qui ed eseguite una volta creaFogliFesteggiati()
 // per avere subito tutti i fogli pronti (altrimenti si creano da soli al primo invitato).
 var FESTEGGIATI = [
-  'Gianni Brunetti', 'Elio Caiaffa', 'Giulia Colasuonno', "Matteo D'Aprile",
+  'Gianni Brunetti', 'Elio Caiaffa', 'Giulia Colasuonno', 'Francesco Conte', "Matteo D'Aprile",
   'Barbara Guglielmi', 'Antonio Minchillo & Marilù Mancini', 'Sarah Manto',
   'Maurizio Pastore', 'Fabrizio Piacquadio', 'Nicola Reggente'
 ];
