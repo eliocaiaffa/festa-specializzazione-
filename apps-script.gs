@@ -34,7 +34,7 @@ function doPost(e) {
   try {
     var p = (e && e.parameter) ? e.parameter : {};
     var host = normalizzaNome(p.invitatoDa || '');
-    var row = [new Date(), p.nome || '', p.cognome || '', host, p.partecipazione || '', p.intolleranze || ''];
+    var row = [new Date(), testo(p.nome), testo(p.cognome), host, testo(p.partecipazione), testo(p.intolleranze)];
 
     // 1. Riepilogo generale
     var ss = SpreadsheetApp.getActiveSpreadsheet();
@@ -81,6 +81,12 @@ function preparaIntestazioni(sheet) {
     sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
     sheet.setFrozenRows(1);
   }
+}
+
+// Un testo che inizia con = + - @ verrebbe letto da Sheets come formula (#NAME?): lo salviamo come testo.
+function testo(v) {
+  v = String(v || '');
+  return /^[=+\-@]/.test(v) ? "'" + v : v;
 }
 
 // "  mario   ROSSI " -> "Mario Rossi": evita fogli doppi se il nome è scritto in modi diversi.
